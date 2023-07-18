@@ -7,6 +7,9 @@ module.exports = {
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
+        container: {
+          center: true
+        },
         extend: {
             colors: {
                 'grey': '#EACDC2',
@@ -18,11 +21,14 @@ module.exports = {
                 'yellow': '#C1CE2C'
             }
         },
+        backgroundImage: {
+            'main-pattern': 'url(/images/main_bg.png)'
+        }
     },
     plugins: [
         plugin(({addUtilities, addComponents}) => {
             addComponents({
-                '.container': {},
+
                 '.header': {
                     color: '#FFF',
                     fontSize: '60px',
