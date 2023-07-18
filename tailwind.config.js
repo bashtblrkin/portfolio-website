@@ -1,18 +1,52 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from 'tailwindcss/plugin'
+
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+    content: [
+        './components/**/*.{js,ts,jsx,tsx,mdx}',
+        './app/**/*.{js,ts,jsx,tsx,mdx}',
+    ],
+    theme: {
+        extend: {
+            colors: {
+                'grey': '#EACDC2',
+                'darkBlue': '#151030',
+                'black': '#1A1423',
+                'violet': '#915EFF',
+                'red': '#C3296A',
+                'green': '#00C7A3',
+                'yellow': '#C1CE2C'
+            }
+        },
     },
-  },
-  plugins: [],
+    plugins: [
+        plugin(({addUtilities, addComponents}) => {
+            addComponents({
+                '.container': {},
+                '.header': {
+                    color: '#FFF',
+                    fontSize: '60px',
+                    fontStyle: 'normal',
+                    fontWeight: '700',
+                },
+                '.subHeader': {
+                    color: '#FFF',
+                    fontSize: '26px',
+                    fontStyle: 'normal',
+                    fontWeight: '700',
+                },
+                '.text': {
+                    color: 'grey',
+                    fontSize: '18px',
+                    fontWeight: '400px'
+                },
+                '.card': {
+                    border: 'solid 1px transparent',
+                    borderImage: 'linear-gradient(#915EFF, #00C7A3)',
+                    borderRadius: '1.25rem',
+                    background: 'black'
+                }
+            })
+        })
+    ],
 }
