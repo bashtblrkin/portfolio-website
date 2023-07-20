@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'Портфолио Ивана Батурина',
+  title: 'Иван | Портфолио',
   description: 'Сайт портфолио Frontend разработчика Ивана Батурина',
 }
 
@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(montserrat.className, 'bg-black bg-main-pattern bg-cover bg-no-repeat ')}>
+      <body className={cn(montserrat.className, 'bg-black bg-main-pattern bg-center bg-cover bg-no-repeat text-white')}>
         <Header/>
         {children}
         <Footer/>

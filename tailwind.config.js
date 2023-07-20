@@ -1,14 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 import plugin from 'tailwindcss/plugin'
+import theme from "tailwindcss/defaultTheme";
 
 module.exports = {
     content: [
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}',
+        './sections/**/*.{js,ts,jsx,tsx,mdx}'
     ],
     theme: {
         container: {
-          center: true
+            center: true
         },
         extend: {
             colors: {
@@ -16,7 +18,7 @@ module.exports = {
                 'darkBlue': '#151030',
                 'black': '#1A1423',
                 'violet': '#915EFF',
-                'red': '#C3296A',
+                'pink': '#C3296A',
                 'green': '#00C7A3',
                 'yellow': '#C1CE2C'
             }
@@ -27,10 +29,24 @@ module.exports = {
     },
     plugins: [
         plugin(({addUtilities, addComponents}) => {
+            addUtilities({
+                '.paddingX': {
+                    paddingRight: '1.25rem',
+                    paddingLeft: '1.25rem',
+                    [`@media (min-width: ${theme.screens.md})`]: {
+                        paddingRight: '4rem',
+                        paddingLeft: '4rem',
+                    },
+                },
+                '.black-gradient': {
+                    background: 'linear-gradient(to right, #434343, #000000)'
+                },
+                '.violet-gradient': {
+                    background: 'linear-gradient(180deg, #915EFF 0%, rgba(217, 217, 217, 0.00) 100%)'
+                }
+            })
             addComponents({
-
                 '.header': {
-                    color: '#FFF',
                     fontSize: '60px',
                     fontStyle: 'normal',
                     fontWeight: '700',
