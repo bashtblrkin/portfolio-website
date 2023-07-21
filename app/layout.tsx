@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(montserrat.className, 'bg-black bg-main-pattern bg-center bg-cover bg-no-repeat text-white')}>
+      <body className={cn(montserrat.className, 'bg-black text-white')}>
         <Header/>
         {children}
         <Footer/>

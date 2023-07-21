@@ -9,9 +9,6 @@ module.exports = {
         './sections/**/*.{js,ts,jsx,tsx,mdx}'
     ],
     theme: {
-        container: {
-            center: true
-        },
         extend: {
             colors: {
                 'grey': '#EACDC2',
@@ -22,6 +19,17 @@ module.exports = {
                 'green': '#00C7A3',
                 'yellow': '#C1CE2C'
             }
+        },
+        boxShadow: {
+            card: "0px 35px 120px -15px #211e35",
+        },
+        screens: {
+            xs: '450px',
+            sm: '640px',
+            md: '768px',
+            lg: '1024px',
+            xl: '1280px',
+            '2xl': '1536px'
         },
         backgroundImage: {
             'main-pattern': 'url(/images/main_bg.png)'
@@ -43,30 +51,59 @@ module.exports = {
                 },
                 '.violet-gradient': {
                     background: 'linear-gradient(180deg, #915EFF 0%, rgba(217, 217, 217, 0.00) 100%)'
+                },
+                '.green-pink-gradient': {
+                    background: 'linear-gradient(#00C7A3, #915EFF)'
                 }
             })
             addComponents({
                 '.header': {
-                    fontSize: '60px',
+                    fontSize: '40px',
                     fontStyle: 'normal',
                     fontWeight: '700',
+                    [`@media (min-width: ${theme.screens.lg})`]: {
+                        fontSize: '80px',
+                        lineHeight: '98px'
+                    },
+                    [`@media (min-width: ${theme.screens.sm})`]: {
+                        fontSize: '60px'
+                    },
+                    [`@media (min-width: ${theme.screens.xs})`]: {
+                        fontSize: '50px'
+                    }
                 },
                 '.subHeader': {
-                    color: '#FFF',
-                    fontSize: '26px',
+                    fontSize: '16px',
                     fontStyle: 'normal',
                     fontWeight: '700',
+                    [`@media (min-width: ${theme.screens.lg})`]: {
+                        fontSize: '30px',
+                        lineHeight: '40px'
+                    },
+                    [`@media (min-width: ${theme.screens.sm})`]: {
+                        fontSize: '24px'
+                    },
+                    [`@media (min-width: ${theme.screens.xs})`]: {
+                        fontSize: '20px'
+                    }
                 },
-                '.text': {
-                    color: 'grey',
-                    fontSize: '18px',
-                    fontWeight: '400px'
+                '.sectionHeader': {
+                    fontSize: '30px',
+                    fontStyle: 'normal',
+                    fontWeight: '700',
+                    [`@media (min-width: ${theme.screens.md})`]: {
+                        fontSize: '60px'
+                    },
+                    [`@media (min-width: ${theme.screens.sm})`]: {
+                        fontSize: '50px'
+                    },
+                    [`@media (min-width: ${theme.screens.xs})`]: {
+                        fontSize: '40px'
+                    },
                 },
-                '.card': {
-                    border: 'solid 1px transparent',
-                    borderImage: 'linear-gradient(#915EFF, #00C7A3)',
-                    borderRadius: '1.25rem',
-                    background: 'black'
+                '.sectionSubHeader': {
+                    color: '#EACDC2',
+                    fontSize: '17px'
                 }
             })
         })
