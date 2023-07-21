@@ -13,11 +13,11 @@ const staatliches = Staatliches({
     weight: ['400']
 })
 
-const reducerIsOpen = (state) => {
+const reducerIsOpen = (state: boolean) => {
     return !state
 }
 
-const initializerIsOpen = (initialState) => {
+const initializerIsOpen = (initialState: boolean) => {
     return initialState
 }
 

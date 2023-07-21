@@ -24,6 +24,8 @@ const MainSection = () => {
                     </p>
                 </div>
             </div>
+
+            <ComputerCanvas />
         </section>
     );
 };
