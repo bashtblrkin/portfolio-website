@@ -1,4 +1,4 @@
-import {Service} from "@/interfaces";
+import {Service} from "@/interfaces/Services";
 
 export const services: Array<Service> = [
     {

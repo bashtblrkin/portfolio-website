@@ -1,16 +1,17 @@
+"use client"
 import React from 'react';
 import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import SectionText from "@/components/SectionText/SectionText";
-import {services} from "@/constants/services";
+import {services} from "@/constants";
 import ServiceCard from "@/components/ServiceCard/ServiceCard";
-import SectionContainer from "@/components/SectionContainer/SectionContainer";
 import Image from "next/image";
 import avatar from '../public/images/avatar.png'
+import SectionWrapper from "@/hoc/SectionWrapper";
 
 
 const AboutSection = () => {
     return (
-        <SectionContainer>
+        <>
             <div className='flex md:flex-row md:gap-0 gap-5 flex-col-reverse items-center justify-between'>
                 <div className='max-w-3xl'>
                     <SectionHeader title={'Обо мне'}/>
@@ -25,11 +26,11 @@ const AboutSection = () => {
                 </div>
                 <Image src={avatar} alt={'Аватар'}/>
             </div>
-            <div className='mt-20 flex flex-wrap gap-10 justify-between'>
+            <div className='mt-20 flex flex-wrap gap-10 justify-evenly'>
                 {services.map((service, index) => <ServiceCard key={service.id} service={service} index={index}/>)}
             </div>
-        </SectionContainer>
+        </>
     );
 };
 
-export default AboutSection;
+export default SectionWrapper(AboutSection, 'about');

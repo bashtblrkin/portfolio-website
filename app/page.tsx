@@ -1,9 +1,17 @@
-import MainSection from "@/sections/MainSection";
-import AboutSection from "@/sections/AboutSection";
+import {
+  AboutSection,
+  ExperienceSection,
+  MainSection,
+  StackSection, WorksSection
+} from "@/sections";
+
 
 export default function Home() {
   return <>
     <MainSection />
     <AboutSection />
+    <ExperienceSection />
+    <StackSection />
+    <WorksSection />
   </>
 }

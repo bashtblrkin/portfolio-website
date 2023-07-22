@@ -6,7 +6,8 @@ module.exports = {
     content: [
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}',
-        './sections/**/*.{js,ts,jsx,tsx,mdx}'
+        './sections/**/*.{js,ts,jsx,tsx,mdx}',
+        './hoc/**/*.{js,ts,jsx,tsx,mdx}'
     ],
     theme: {
         extend: {
@@ -14,6 +15,7 @@ module.exports = {
                 'grey': '#EACDC2',
                 'darkBlue': '#151030',
                 'black': '#1A1423',
+                'aqua': '#377DB7',
                 'violet': '#915EFF',
                 'pink': '#C3296A',
                 'green': '#00C7A3',
@@ -54,6 +56,11 @@ module.exports = {
                 },
                 '.green-pink-gradient': {
                     background: 'linear-gradient(#00C7A3, #915EFF)'
+                },
+                '.hash-span': {
+                    marginTop: '-100px',
+                    paddingBottom: '100px',
+                    display: 'block'
                 }
             })
             addComponents({

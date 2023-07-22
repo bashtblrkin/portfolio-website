@@ -3,7 +3,7 @@ import React, {useReducer, useState} from 'react';
 import {Staatliches} from "next/font/google";
 import cn from "classnames";
 import Link from 'next/link'
-import {navLinks} from "@/constants/navLinks";
+import {navLinks} from "@/constants";
 import menu from '../../public/icons/menu.svg'
 import close from '../../public/icons/close.svg'
 import Image from "next/image";
@@ -56,7 +56,7 @@ const Header = () => {
                                 setActiveLink(link.id)
                             }}
                         >
-                            <Link href={`#${link.id}`}>{link.title}</Link>
+                            <a href={`#${link.id}`}>{link.title}</a>
                         </li>
                     )}
                 </ul>
@@ -81,7 +81,7 @@ const Header = () => {
                                         setActiveLink(link.id)
                                     }}
                                 >
-                                    <Link href={`#${link.id}`}>{link.title}</Link>
+                                    <a href={`#${link.id}`}>{link.title}</a>
                                 </li>
                             )}
                         </ul>

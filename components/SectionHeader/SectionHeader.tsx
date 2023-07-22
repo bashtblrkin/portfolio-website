@@ -5,12 +5,13 @@ import {textVariant} from "@/utils/motion";
 
 interface SectionHeaderProps {
     title: string
+    classNames?: string
 }
 
-const SectionHeader: FC<SectionHeaderProps> = ({title}) => {
+const SectionHeader: FC<SectionHeaderProps> = ({title, classNames}) => {
     return (
-        <motion.div variants={textVariant(0.75)}>
-            <h2 className='sectionHeader'>{title}</h2>
+        <motion.div variants={textVariant(0)}>
+            <h2 className={'sectionHeader ' + classNames}>{title}</h2>
         </motion.div>
     );
 };

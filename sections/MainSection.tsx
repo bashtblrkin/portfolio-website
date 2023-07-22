@@ -1,5 +1,4 @@
-
-import ComputerCanvas from '../components/Canvas/Computer'
+import {ComputerCanvas} from "@/components/Canvas";
 import Scroller from "@/components/Scroller/Scroller";
 
 const MainSection = () => {
