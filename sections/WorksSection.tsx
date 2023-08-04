@@ -5,18 +5,25 @@ import React, {useState} from "react";
 import SectionText from "@/components/SectionText/SectionText";
 import {works} from "@/constants";
 import WorkCard from "@/components/WorkCard/WorkCard";
+import {AnimatePresence, LayoutGroup, motion} from "framer-motion";
+import Modal from "@/components/Modal/Modal";
+import Image from "next/image";
+import {Work} from "@/interfaces/Work";
+import close from "@/public/icons/close.svg";
+import menu from "@/public/icons/menu.svg";
+import WorkCardModal from "@/components/WorkCardModal/WorkCardModal";
 
 const WorksSection = () => {
 
-    const [selectedId, setSelectedId] = useState<string | null>(null)
+    const [selectedWork, setSelectedWork] = useState<Work | null>(null)
 
-    const handleClickCard = (id: string) => () => {
-        setSelectedId(id)
+    const handleClickWork = (work: Work | null) => {
+        setSelectedWork(work)
     }
 
     return (
         <>
-            <SectionHeader title={'Мои работы'} />
+            <SectionHeader title={'Мои работы'}/>
             <div className='max-w-3xl'>
                 <SectionText text={`
                     Следующие проекты демонстрируют мои навыки
@@ -24,13 +31,23 @@ const WorksSection = () => {
                     по возможности предоставлены репозитории и ссылки на онлайн
                     демонстрацию проекта. Работы отражают мою способность решать
                     сложные задачи, работать с различными технологиями
-                    и эффективно управлять проектами.`} />
+                    и эффективно управлять проектами.`}/>
             </div>
-            <div className='mt-20 flex flex-wrap gap-10 justify-evenly'>
-                {works.map((work, index) =>
-                    <WorkCard key={work.id} work={work} index={index} onClick={handleClickCard(work.id)}/>
-                )}
-            </div>
+            <LayoutGroup>
+                <div className='mt-20 flex flex-wrap gap-2 justify-evenly'>
+                    {works.map((work, index) =>
+                        <WorkCard key={work.id} work={work} index={index} onClick={() => handleClickWork(work)}/>
+                    )}
+
+                    <AnimatePresence>
+                        {selectedWork &&
+                            <Modal>
+                                <WorkCardModal work={selectedWork} onClickClose={() => setSelectedWork(null)}/>
+                            </Modal>
+                        }
+                    </AnimatePresence>
+                </div>
+            </LayoutGroup>
         </>
     );
 };

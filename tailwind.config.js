@@ -111,6 +111,20 @@ module.exports = {
                 '.sectionSubHeader': {
                     color: '#EACDC2',
                     fontSize: '17px'
+                },
+                '.glare': {
+                    position: 'absolute',
+                    width: '200px',
+                    height: '200px',
+                    backgroundColor: '#7ee787',
+                    filter: 'blur(180px)',
+                    borderRadius: '50%',
+                    opacity:0,
+                    transition: 'opacity 2s cubic-bezier(0.16, 1, 0.3, 1)',
+
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: '10',
+                    pointerEvents: 'none'
                 }
             })
         })
