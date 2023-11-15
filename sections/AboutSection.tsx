@@ -8,8 +8,8 @@ import Image from "next/image";
 import avatar from '../public/images/avatar.png'
 import SectionWrapper from "@/hoc/SectionWrapper";
 
-
 const AboutSection = () => {
+
     return (
         <>
             <div className='flex md:flex-row md:gap-0 gap-5 flex-col-reverse items-center justify-between'>
@@ -24,7 +24,7 @@ const AboutSection = () => {
                         Мне нравится учиться и узнавать новые технологии, чтобы создавать эффективные,
                         масштабируемые и удобные для пользователя приложения, а также решать бизнес задачи.`}/>
                 </div>
-                <Image src={avatar} alt={'Аватар'}/>
+                <Image src={avatar} alt={'Аватар'} width={334} height={334}/>
             </div>
             <div className='mt-20 flex flex-wrap gap-10 justify-evenly'>
                 {services.map((service, index) => <ServiceCard key={service.id} service={service} index={index}/>)}

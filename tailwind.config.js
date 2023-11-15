@@ -61,6 +61,9 @@ module.exports = {
                     marginTop: '-100px',
                     paddingBottom: '100px',
                     display: 'block'
+                },
+                '.modal-height': {
+                    maxHeight: 'calc(100vh - 30%)'
                 }
             })
             addComponents({

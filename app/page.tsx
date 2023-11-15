@@ -4,6 +4,7 @@ import {
   MainSection,
   StackSection, WorksSection
 } from "@/sections";
+import ContactSection from "@/sections/ContactSection";
 
 
 export default function Home() {
@@ -13,5 +14,8 @@ export default function Home() {
     <ExperienceSection />
     <StackSection />
     <WorksSection />
+    <div className='relative z-0'>
+      <ContactSection />
+    </div>
   </>
 }

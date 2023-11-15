@@ -1,5 +1,4 @@
 import {MutableRefObject, useEffect, useState} from "react";
-import {is} from "@react-spring/shared";
 
 interface MousePosition {
     x: number | null
@@ -21,6 +20,7 @@ const useMousePosition = <T extends HTMLElement,>(ref: MutableRefObject<T | null
     useEffect(() => {
         const updateMousePosition = (event: HTMLElementEventMap["mousemove"]) => {
             const targetCoords = ref.current?.getBoundingClientRect()
+            if (!targetCoords) return;
             setMousePosition({ x: event.clientX - targetCoords.left, y: event.clientY - targetCoords.top});
             setIsFocused(true)
         };

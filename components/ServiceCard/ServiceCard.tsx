@@ -22,7 +22,6 @@ const ServiceCard: FC<ServiceCardProps> = ({service, index}) => {
                 className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
             >
                 <div
-
                     className='bg-darkBlue rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
                 >
                     <Image src={icon} alt={title} width={60} height={60} />

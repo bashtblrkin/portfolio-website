@@ -5,17 +5,17 @@ import React, {useState} from "react";
 import SectionText from "@/components/SectionText/SectionText";
 import {works} from "@/constants";
 import WorkCard from "@/components/WorkCard/WorkCard";
-import {AnimatePresence, LayoutGroup, motion} from "framer-motion";
+import {AnimatePresence, LayoutGroup} from "framer-motion";
 import Modal from "@/components/Modal/Modal";
-import Image from "next/image";
 import {Work} from "@/interfaces/Work";
-import close from "@/public/icons/close.svg";
-import menu from "@/public/icons/menu.svg";
 import WorkCardModal from "@/components/WorkCardModal/WorkCardModal";
+import {useMobile} from "@/hooks/useMobile";
+import {useBodyScrollLock} from "@/hooks/useBodyScrollLock";
 
 const WorksSection = () => {
 
     const [selectedWork, setSelectedWork] = useState<Work | null>(null)
+    useBodyScrollLock(!!selectedWork)
 
     const handleClickWork = (work: Work | null) => {
         setSelectedWork(work)

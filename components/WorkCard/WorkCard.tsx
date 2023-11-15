@@ -29,52 +29,55 @@ const WorkCard: FC<WorkCardProps> = ({work, index, onClick}) => {
                 onClick={onClick}
                 layoutId={`card-${work.id}`}
             >
-                <div className='relative w-full h-[230px]'>
-                    <Image
-                        src={image}
-                        alt={title}
-                        width={320}
-                        height={230}
-                        style={{objectFit: 'cover', borderRadius: '20px'}}
-                    />
+                <div className='flex justify-center'>
+                    <div className='relative w-[320px] sm:w-full'>
+                        <Image
+                            src={image}
+                            alt={title}
+                            width={320}
+                            height={230}
+                            style={{objectFit: 'cover', borderRadius: '20px'}}
+                        />
 
-                    {github && <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-                        <div
-                            onClick={(event) => {
-                                event.preventDefault()
-                                event.stopPropagation()
-                                window.open(github || '', "_blank")
-                            }}
-                            className='bg-black w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-                        >
-                            <Image
-                                width={20}
-                                height={20}
-                                src='/images/github.png'
-                                alt='source code'
-                                className='w-1/2 h-1/2 object-contain'
-                            />
-                        </div>
-                    </div>}
-                    {link && <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-                        <div
-                            onClick={(event) => {
-                                event.preventDefault()
-                                event.stopPropagation()
-                                window.open(link || '', "_blank")
-                            }}
-                            className='bg-black w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-                        >
-                            <Image
-                                width={20}
-                                height={20}
-                                src='/images/world.png'
-                                alt='source code'
-                                className='w-1/2 h-1/2 object-contain'
-                            />
-                        </div>
-                    </div>}
+                        {github && <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+                            <div
+                                onClick={(event) => {
+                                    event.preventDefault()
+                                    event.stopPropagation()
+                                    window.open(github || '', "_blank")
+                                }}
+                                className='bg-black w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+                            >
+                                <Image
+                                    width={20}
+                                    height={20}
+                                    src='/images/github.png'
+                                    alt='source code'
+                                    className='w-1/2 h-1/2 object-contain'
+                                />
+                            </div>
+                        </div>}
+                        {link && <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+                            <div
+                                onClick={(event) => {
+                                    event.preventDefault()
+                                    event.stopPropagation()
+                                    window.open(link || '', "_blank")
+                                }}
+                                className='bg-black w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+                            >
+                                <Image
+                                    width={20}
+                                    height={20}
+                                    src='/images/world.png'
+                                    alt='source code'
+                                    className='w-1/2 h-1/2 object-contain'
+                                />
+                            </div>
+                        </div>}
+                    </div>
                 </div>
+
 
                 <div className='mt-5'>
                     <h3 className='text-white font-bold text-[24px] h-[75px]'>{title}</h3>

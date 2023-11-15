@@ -2,7 +2,9 @@
 import {motion} from "framer-motion";
 import Image from "next/image";
 import {Work} from "@/interfaces/Work";
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
+import {fadeIn} from "@/utils/motion";
+import {useVisibleDelay} from "@/hooks/useVisibleDelay";
 
 interface WorkCardModalProps {
     work: Work
@@ -14,15 +16,27 @@ interface CloseProps {
 }
 
 const Close: FC<CloseProps> = ({onClickClose}) => {
+
+    const [isVisible, setVisible] = useVisibleDelay(450)
+
+    const handleClick = () => {
+        setVisible(false)
+        onClickClose()
+    }
+
     return (<div
-        className={'absolute w-[30px] h-[30px] top-5 right-5 rounded-full border-2 border-white flex items-center justify-center'}>
+        className={`sm:absolute fixed w-[30px] h-[30px] sm:top-5 right-5 top-[10%] rounded-full border-2 border-white flex items-center justify-center`}
+        style={{
+            opacity: isVisible ? 1 : 0
+        }}
+    >
         <Image
             src={'/icons/close.svg'}
             width={15}
             height={15}
             alt="menu"
             className='object-contain cursor-pointer'
-            onClick={onClickClose}
+            onClick={handleClick}
         />
     </div>);
 };
@@ -34,17 +48,58 @@ const WorkCardModal: FC<WorkCardModalProps> = ({work, onClickClose}) => {
     return (
         <motion.div
             layoutId={`card-${id}`}
-            className={'relative bg-darkBlue p-5 rounded-2xl w-[1200px] w-full overflow-hidden hover:cursor-pointer'}
+            className={'relative bg-darkBlue p-5 rounded-2xl sm:w-[1200px] modal-height lg:overflow-hidden overflow-auto'}
         >
             <Close onClickClose={onClickClose}/>
-            <div className={'flex gap-5'}>
-                <Image
-                    src={image}
-                    alt={title}
-                    height={230}
-                    width={320}
-                    style={{objectFit: 'cover', borderRadius: '20px', maxHeight: '230px'}}
-                />
+            <div className={'flex lg:flex-row flex-col gap-5'}>
+                <div className='flex justify-center'>
+                    <div className='relative shrink-0 w-[320px] '>
+                        <Image
+                            src={image}
+                            alt={title}
+                            height={230}
+                            width={320}
+                            style={{objectFit: 'cover', borderRadius: '20px', maxHeight: '230px'}}
+                        />
+                        {github && <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+                            <div
+                                onClick={(event) => {
+                                    event.preventDefault()
+                                    event.stopPropagation()
+                                    window.open(github || '', "_blank")
+                                }}
+                                className='bg-black w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+                            >
+                                <Image
+                                    width={20}
+                                    height={20}
+                                    src='/images/github.png'
+                                    alt='source code'
+                                    className='w-1/2 h-1/2 object-contain'
+                                />
+                            </div>
+                        </div>}
+                        {link && <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+                            <div
+                                onClick={(event) => {
+                                    event.preventDefault()
+                                    event.stopPropagation()
+                                    window.open(link || '', "_blank")
+                                }}
+                                className='bg-black w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+                            >
+                                <Image
+                                    width={20}
+                                    height={20}
+                                    src='/images/world.png'
+                                    alt='source code'
+                                    className='w-1/2 h-1/2 object-contain'
+                                />
+                            </div>
+                        </div>}
+                    </div>
+                </div>
+
                 <div>
                     <h3 className='text-white font-bold text-[24px]'>{title}</h3>
                     <p className='mt-2 text-secondary text-[14px]'>{description}</p>
