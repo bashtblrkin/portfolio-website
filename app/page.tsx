@@ -5,6 +5,8 @@ import {
   StackSection, WorksSection
 } from "@/sections";
 import ContactSection from "@/sections/ContactSection";
+import StarCanvas from "@/components/Canvas/Stars";
+import React from "react";
 
 
 export default function Home() {
@@ -15,6 +17,7 @@ export default function Home() {
     <StackSection />
     <WorksSection />
     <div className='relative z-0'>
+      <StarCanvas />
       <ContactSection />
     </div>
   </>

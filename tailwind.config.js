@@ -12,14 +12,18 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                primary: "#050816",
+                secondary: "#aaa6c3",
                 'grey': '#EACDC2',
                 'darkBlue': '#151030',
                 'black': '#1A1423',
+                'black-100': "#100d25",
+                'black-200': "#090325",
                 'aqua': '#377DB7',
                 'violet': '#915EFF',
                 'pink': '#C3296A',
                 'green': '#00C7A3',
-                'yellow': '#C1CE2C'
+                'yellow': '#C1CE2C',
             }
         },
         boxShadow: {

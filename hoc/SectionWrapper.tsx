@@ -4,7 +4,9 @@ import {staggerContainer} from "@/utils/motion";
 import {motion} from 'framer-motion'
 import {useMobile} from "@/hooks/useMobile";
 
-const SectionWrapper = (Component: () => React.ReactNode, anchor: string) => {
+const SectionWrapper = (Component: () => React.ReactNode, anchor: string, amount: number = 0.25) => {
+
+
 
     return function Wrapper() {
         return (
@@ -12,7 +14,7 @@ const SectionWrapper = (Component: () => React.ReactNode, anchor: string) => {
                 variants={staggerContainer()}
                 initial='hidden'
                 whileInView='show'
-                viewport={{once: true, amount: 0.15}}
+                viewport={{once: true, amount}}
                 className={`sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0`}
             >
                 <span className='hash-span' id={anchor}>

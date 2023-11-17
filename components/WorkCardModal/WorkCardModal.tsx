@@ -48,7 +48,7 @@ const WorkCardModal: FC<WorkCardModalProps> = ({work, onClickClose}) => {
     return (
         <motion.div
             layoutId={`card-${id}`}
-            className={'relative bg-darkBlue p-5 rounded-2xl sm:w-[1200px] modal-height lg:overflow-hidden overflow-auto'}
+            className={'relative bg-darkBlue p-5 rounded-2xl sm:w-[1200px] modal-height lg:overflow-hidden overflow-auto z-10'}
         >
             <Close onClickClose={onClickClose}/>
             <div className={'flex lg:flex-row flex-col gap-5'}>

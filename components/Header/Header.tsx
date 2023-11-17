@@ -1,5 +1,5 @@
 "use client"
-import React, {useReducer, useState} from 'react';
+import React, {useEffect, useReducer, useRef, useState} from 'react';
 import {Staatliches} from "next/font/google";
 import cn from "classnames";
 import Link from 'next/link'
@@ -23,8 +23,25 @@ const initializerIsOpen = (initialState: boolean) => {
 
 const Header = () => {
 
+    const ref = useRef<HTMLHeadElement>(null)
     const [activeLink, setActiveLink] = useState('')
     const [isOpen, toggleIsOpen] = useReducer(reducerIsOpen, false, initializerIsOpen)
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            if (scrollTop > 100) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const handleClickLogo = () => {
         setActiveLink('')
@@ -32,7 +49,7 @@ const Header = () => {
     }
 
     return (
-        <header className='paddingX w-full flex items-center py-5 fixed top-0 z-20 bg-transparent'>
+        <header ref={ref} className={`paddingX w-full flex items-center py-5 fixed top-0 z-20 transition ${scrolled ? 'bg-primary' : 'bg-transparent'}`}>
             <nav className='w-full flex justify-between items-center max-w-7xl mx-auto'>
                 <Link
                     href="/"

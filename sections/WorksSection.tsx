@@ -52,4 +52,4 @@ const WorksSection = () => {
     );
 };
 
-export default SectionWrapper(WorksSection, 'works');
+export default SectionWrapper(WorksSection, 'works', 0.05);
