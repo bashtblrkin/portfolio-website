@@ -2,9 +2,7 @@
 import {motion} from "framer-motion";
 import Image from "next/image";
 import {Work} from "@/interfaces/Work";
-import React, {FC, useEffect} from "react";
-import {fadeIn} from "@/utils/motion";
-import {useVisibleDelay} from "@/hooks/useVisibleDelay";
+import React, {FC} from "react";
 
 interface WorkCardModalProps {
     work: Work
@@ -17,18 +15,12 @@ interface CloseProps {
 
 const Close: FC<CloseProps> = ({onClickClose}) => {
 
-    const [isVisible, setVisible] = useVisibleDelay(450)
-
     const handleClick = () => {
-        setVisible(false)
         onClickClose()
     }
 
     return (<div
         className={`sm:absolute fixed w-[30px] h-[30px] sm:top-5 right-5 top-[10%] rounded-full border-2 border-white flex items-center justify-center`}
-        style={{
-            opacity: isVisible ? 1 : 0
-        }}
     >
         <Image
             src={'/icons/close.svg'}
@@ -47,8 +39,27 @@ const WorkCardModal: FC<WorkCardModalProps> = ({work, onClickClose}) => {
 
     return (
         <motion.div
-            layoutId={`card-${id}`}
-            className={'relative bg-darkBlue p-5 rounded-2xl sm:w-[1200px] modal-height lg:overflow-hidden overflow-auto z-10'}
+            initial={{
+                opacity: 0,
+                scale: 0.75,
+            }}
+            animate={{
+                opacity: 1,
+                scale: 1,
+                transition: {
+                    ease: "easeOut",
+                    duration: 0.15,
+                },
+            }}
+            exit={{
+                opacity: 0,
+                scale: 0.75,
+                transition: {
+                    ease: "easeIn",
+                    duration: 0.15
+                },
+            }}
+            className={'relative bg-darkBlue p-5 rounded-2xl sm:w-[1200px] modal-height lg:overflow-hidden overflow-y-scroll'}
         >
             <Close onClickClose={onClickClose}/>
             <div className={'flex lg:flex-row flex-col gap-5'}>

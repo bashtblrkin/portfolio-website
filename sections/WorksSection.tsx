@@ -15,7 +15,6 @@ import {useBodyScrollLock} from "@/hooks/useBodyScrollLock";
 const WorksSection = () => {
 
     const [selectedWork, setSelectedWork] = useState<Work | null>(null)
-    useBodyScrollLock(!!selectedWork)
 
     const handleClickWork = (work: Work | null) => {
         setSelectedWork(work)
@@ -33,21 +32,19 @@ const WorksSection = () => {
                     сложные задачи, работать с различными технологиями
                     и эффективно управлять проектами.`}/>
             </div>
-            <LayoutGroup>
-                <div className='mt-20 flex flex-wrap gap-2 justify-evenly'>
-                    {works.map((work, index) =>
-                        <WorkCard key={work.id} work={work} index={index} onClick={() => handleClickWork(work)}/>
-                    )}
+            <div className='mt-20 flex flex-wrap gap-2 justify-evenly'>
+                {works.map((work, index) =>
+                    <WorkCard key={work.id} work={work} index={index} onClick={() => handleClickWork(work)}/>
+                )}
 
-                    <AnimatePresence>
-                        {selectedWork &&
-                            <Modal>
-                                <WorkCardModal work={selectedWork} onClickClose={() => setSelectedWork(null)}/>
-                            </Modal>
-                        }
-                    </AnimatePresence>
-                </div>
-            </LayoutGroup>
+                <AnimatePresence>
+                    {selectedWork &&
+                        <Modal>
+                            <WorkCardModal work={selectedWork} onClickClose={() => setSelectedWork(null)}/>
+                        </Modal>
+                    }
+                </AnimatePresence>
+            </div>
         </>
     );
 };
