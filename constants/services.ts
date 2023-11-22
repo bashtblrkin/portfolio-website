@@ -4,21 +4,21 @@ export const services: Array<Service> = [
     {
         id: 'web-dev',
         title: 'Веб разработка',
-        icon: '/images/triangle.png'
+        icon: '/images/services/triangle.png'
     },
     {
         id: 'pwa-dev',
         title: 'PWA разработка',
-        icon: '/images/squares.png'
+        icon: '/images/services/squares.png'
     },
     {
         id: 'frontend-arch',
         title: 'Frontend архитектура',
-        icon: '/images/react.png'
+        icon: '/images/services/react.png'
     },
     {
         id: 'content-creator',
         title: 'Создание контента',
-        icon: '/images/mill.png'
+        icon: '/images/services/mill.png'
     }
 ]

@@ -15,7 +15,7 @@ const SectionWrapper = (Component: () => React.ReactNode, anchor: string, amount
                 initial='hidden'
                 whileInView='show'
                 viewport={{once: true, amount}}
-                className={`sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0`}
+                className={`sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative`}
             >
                 <span className='hash-span' id={anchor}>
                   &nbsp;

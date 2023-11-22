@@ -3,7 +3,6 @@ import React, {FC, useEffect} from 'react';
 import {Work} from "@/interfaces/Work";
 import {fadeIn} from "@/utils/motion";
 import {motion} from 'framer-motion'
-import Tilt from "react-parallax-tilt";
 import Image from "next/image";
 import useMousePosition from "@/hooks/useMousePosition";
 import cn from "classnames";
@@ -49,7 +48,7 @@ const WorkCard: FC<WorkCardProps> = ({work, index, onClick}) => {
                             <Image
                                 width={20}
                                 height={20}
-                                src='/images/github.png'
+                                src='/images/icons/github.png'
                                 alt='source code'
                                 className='w-1/2 h-1/2 object-contain'
                             />
@@ -67,7 +66,7 @@ const WorkCard: FC<WorkCardProps> = ({work, index, onClick}) => {
                             <Image
                                 width={20}
                                 height={20}
-                                src='/images/world.png'
+                                src='/images/icons/world.png'
                                 alt='source code'
                                 className='w-1/2 h-1/2 object-contain'
                             />

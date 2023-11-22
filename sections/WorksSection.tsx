@@ -16,6 +16,8 @@ const WorksSection = () => {
 
     const [selectedWork, setSelectedWork] = useState<Work | null>(null)
 
+    useBodyScrollLock(!!selectedWork)
+
     const handleClickWork = (work: Work | null) => {
         setSelectedWork(work)
     }

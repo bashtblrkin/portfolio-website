@@ -84,7 +84,7 @@ const WorkCardModal: FC<WorkCardModalProps> = ({work, onClickClose}) => {
                                 <Image
                                     width={20}
                                     height={20}
-                                    src='/images/github.png'
+                                    src='/images/icons/github.png'
                                     alt='source code'
                                     className='w-1/2 h-1/2 object-contain'
                                 />
@@ -102,7 +102,7 @@ const WorkCardModal: FC<WorkCardModalProps> = ({work, onClickClose}) => {
                                 <Image
                                     width={20}
                                     height={20}
-                                    src='/images/world.png'
+                                    src='/images/icons/world.png'
                                     alt='source code'
                                     className='w-1/2 h-1/2 object-contain'
                                 />

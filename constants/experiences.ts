@@ -6,7 +6,7 @@ export const experiences: Array<Experience> = [
         title: 'Веб-разработчик',
         companyName: 'Фриланс',
         iconBackground: '#383E56',
-        icon: '/images/bird.png',
+        icon: '/images/icons/bird.png',
         workTime: 'Ноябрь 2019 - Август 2021',
         tasks: [
             'Вёрстка сайтов по готовым макетам',
@@ -23,7 +23,7 @@ export const experiences: Array<Experience> = [
         title: 'Frontend разработчик',
         companyName: 'АСБК Софт',
         iconBackground: '#E6DEDD',
-        icon: '/images/asbc.png',
+        icon: '/images/icons/asbc.png',
         workTime: 'Август 2021 - Настоящее время',
         tasks: [
             'Проектирование frontend архитектуры',

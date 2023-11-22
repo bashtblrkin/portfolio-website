@@ -23,7 +23,6 @@ const initializerIsOpen = (initialState: boolean) => {
 
 const Header = () => {
 
-    const ref = useRef<HTMLHeadElement>(null)
     const [activeLink, setActiveLink] = useState('')
     const [isOpen, toggleIsOpen] = useReducer(reducerIsOpen, false, initializerIsOpen)
     const [scrolled, setScrolled] = useState(false);
@@ -49,7 +48,7 @@ const Header = () => {
     }
 
     return (
-        <header ref={ref} className={`paddingX w-full flex items-center py-5 fixed top-0 z-20 transition ${scrolled ? 'bg-primary' : 'bg-transparent'}`}>
+        <header className={`paddingX w-full flex items-center py-5 fixed top-0 z-20 transition ${scrolled ? 'bg-primary' : 'bg-transparent'}`}>
             <nav className='w-full flex justify-between items-center max-w-7xl mx-auto'>
                 <Link
                     href="/"

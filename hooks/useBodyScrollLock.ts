@@ -1,18 +1,16 @@
-import {useEffect} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 export const useBodyScrollLock = (modalOpen: boolean) => {
     useEffect(() => {
-       /* const header = document.querySelector('header')
         if (modalOpen) {
-            document.body.style.overflow = 'hidden'
-            document.body.style.paddingRight = '8px'
-            if (!header) return;
-            header.style.marginRight = '8px'
+            document.body.style.position = 'fixed'
+            console.log(scrollY)
+            document.body.style.top = `-${window.scrollY}px`
         } else {
-            document.body.style.overflow = ''
-            document.body.style.paddingRight = ''
-            if (!header) return;
-            header.style.marginRight = ''
-        }*/
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        }
     }, [modalOpen])
 }
