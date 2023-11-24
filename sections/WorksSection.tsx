@@ -10,13 +10,13 @@ import Modal from "@/components/Modal/Modal";
 import {Work} from "@/interfaces/Work";
 import WorkCardModal from "@/components/WorkCardModal/WorkCardModal";
 import {useMobile} from "@/hooks/useMobile";
-import {useBodyScrollLock} from "@/hooks/useBodyScrollLock";
+import {useBodyScrollLockMobile} from "@/hooks/useBodyScrollLockMobile";
 
 const WorksSection = () => {
 
     const [selectedWork, setSelectedWork] = useState<Work | null>(null)
 
-    useBodyScrollLock(!!selectedWork)
+    useBodyScrollLockMobile(!!selectedWork)
 
     const handleClickWork = (work: Work | null) => {
         setSelectedWork(work)

@@ -1,6 +1,8 @@
 'use client'
 import React, {useState} from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 interface FormValues {
     name: string
@@ -21,7 +23,25 @@ const ContactForm = () => {
     const [loading, setLoading] = useState(false)
 
     const onSubmit: SubmitHandler<FormValues> = (data) => {
+        setLoading(true)
+        fetch('/api/mail', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response =>  response.json() as Promise<{success: boolean, message: string}>)
+            .then((message: {success: boolean, message: string})=> {
+                if (message.success) {
 
+                } else {
+
+                }
+            })
+            .catch((error: Error) => {
+                console.error(error)
+            })
     }
 
     return (

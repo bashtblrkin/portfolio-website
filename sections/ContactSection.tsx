@@ -7,7 +7,6 @@ import SectionText from "@/components/SectionText/SectionText";
 import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import ContactForm from "@/components/ContactForm/ContactForm";
 import EarthCanvas from "@/components/Canvas/Earth";
-import StarCanvas from "@/components/Canvas/Stars";
 
 const ContactSection = () => {
     return (
@@ -17,7 +16,7 @@ const ContactSection = () => {
                 className="flex-[0.75] bg-black-100 p-8 rounded-2xl z-[0]"
             >
                 <SectionText text='Связаться' />
-                <SectionHeader title='Котакты.'/>
+                <SectionHeader title='Контакты.'/>
                 <ContactForm />
             </motion.div>
             <motion.div

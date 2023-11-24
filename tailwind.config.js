@@ -72,7 +72,7 @@ module.exports = {
             })
             addComponents({
                 '.header': {
-                    fontSize: '40px',
+                    fontSize: '35px',
                     fontStyle: 'normal',
                     fontWeight: '700',
                     [`@media (min-width: ${theme.screens.lg})`]: {
@@ -83,6 +83,9 @@ module.exports = {
                         fontSize: '60px'
                     },
                     [`@media (min-width: ${theme.screens.xs})`]: {
+                        fontSize: '50px'
+                    },
+                    ['@media (min-width: 400px)']: {
                         fontSize: '50px'
                     }
                 },
@@ -98,6 +101,9 @@ module.exports = {
                         fontSize: '24px'
                     },
                     [`@media (min-width: ${theme.screens.xs})`]: {
+                        fontSize: '20px'
+                    },
+                    ['@media (min-width: 400px)']: {
                         fontSize: '20px'
                     }
                 },
