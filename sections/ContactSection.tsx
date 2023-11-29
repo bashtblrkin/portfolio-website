@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, {useRef} from 'react';
 import SectionWrapper from "@/hoc/SectionWrapper";
 import { motion } from 'framer-motion';
 import {slideIn} from "@/utils/motion";
@@ -9,6 +9,7 @@ import ContactForm from "@/components/ContactForm/ContactForm";
 import EarthCanvas from "@/components/Canvas/Earth";
 
 const ContactSection = () => {
+
     return (
         <div className='xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden'>
             <motion.div

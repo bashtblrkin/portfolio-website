@@ -1,43 +1,37 @@
-import type {NextApiRequest, NextApiResponse} from 'next';
+'use server'
 import {mailOptions, transporter} from "@/config/nodemailer";
+import {ContactMessage} from "@/interfaces/Contacts";
 
-type Data = {
+export type FeedBackResponse = {
     success: boolean
+    title: string
     message: string
 }
 
-const handler = async (
-    req: NextApiRequest,
-    res: NextApiResponse<Data>
-) => {
-    if (req.method !== "POST") return res.status(404).json({
-        success: false,
-        message: 'Bad Request'
-    });
-    const fields = req.body
-
-    try {
-            transporter.sendMail({
-                ...mailOptions,
-                subject: 'Сообщение с моего сайта',
-                html: `
+export const sendMail = async (fields: ContactMessage): Promise<FeedBackResponse> => {
+    return transporter.sendMail({
+        ...mailOptions,
+        subject: 'Сообщение с моего сайта',
+        html: `
                     <p>Имя: ${fields.name}</p>
                     <p>Email: ${fields.email}</p>
                     <p>Сообщение: ${fields.message}</p>
-            `})
-                .then((value) => {
-                    console.log(value)
-                })
-        return res.status(200).json({
-            success: true,
-            message: 'Сообщение успешно отправлено'
-        });
-    } catch (err) {
-        return res.status(500).json({
-            success: false,
-            message: "Internal Server Error"
-        });
-    }
+            `
+    })
+        .then((value) => {
+            console.log(value)
+            return {
+                success: true,
+                title: 'Спасибо за обращение',
+                message: 'В ближайшее время я отвечу на ваше письмо. По срочным вопросам вы можете написать мне в телеграм, ссылка находится в подвале сайта.'
+            };
+        })
+        .catch(error => {
+            console.log(error)
+            return {
+                success: false,
+                title: 'Упс, произошла ошибка!',
+                message: 'При отправке письма произошла ошибка. Попробуйте повторить попытку позже.'
+            };
+        })
 }
-
-export default handler

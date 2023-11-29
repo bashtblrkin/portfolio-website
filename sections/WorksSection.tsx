@@ -40,11 +40,9 @@ const WorksSection = () => {
                 )}
 
                 <AnimatePresence>
-                    {selectedWork &&
-                        <Modal>
-                            <WorkCardModal work={selectedWork} onClickClose={() => setSelectedWork(null)}/>
-                        </Modal>
-                    }
+                    <Modal isOpen={!!selectedWork} onClose={() => setSelectedWork(null)}>
+                        {selectedWork && <WorkCardModal work={selectedWork} />}
+                    </Modal>
                 </AnimatePresence>
             </div>
         </>

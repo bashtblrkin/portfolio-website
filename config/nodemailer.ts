@@ -7,8 +7,9 @@ const smtpOptions = {
     auth: {
         user: process.env.SMTP_USER || "user",
         pass: process.env.SMTP_PASSWORD || "password",
-    },
+    }
 }
+
 
 //@ts-ignore
 export const transporter = nodemailer.createTransport({
