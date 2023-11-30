@@ -23,7 +23,7 @@ const WorkCard: FC<WorkCardProps> = ({work, index, onClick}) => {
         <motion.div
             ref={containerRef}
             variants={fadeIn('up', 'spring', index * 0.5, 0.75)}
-            className='relative bg-darkBlue p-5 rounded-2xl sm:w-[360px] w-full overflow-hidden hover:cursor-pointer'
+            className='relative bg-darkBlue p-5 rounded-2xl sm:w-[360px] w-full overflow-hidden hover:cursor-pointer m-auto'
             onClick={onClick}
         >
             <div className='flex justify-center'>

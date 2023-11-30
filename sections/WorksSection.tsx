@@ -34,7 +34,7 @@ const WorksSection = () => {
                     сложные задачи, работать с различными технологиями
                     и эффективно управлять проектами.`}/>
             </div>
-            <div className='mt-20 flex flex-wrap gap-2 justify-evenly'>
+            <div className='mt-20 grid gap-4 grid-cols-fit-360'>
                 {works.map((work, index) =>
                     <WorkCard key={work.id} work={work} index={index} onClick={() => handleClickWork(work)}/>
                 )}

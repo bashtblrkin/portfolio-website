@@ -24,6 +24,9 @@ module.exports = {
                 'pink': '#C3296A',
                 'green': '#00C7A3',
                 'yellow': '#C1CE2C',
+            },
+            gridTemplateColumns: {
+                'fit-360': 'repeat(auto-fit, minmax(360px, 1fr))'
             }
         },
         boxShadow: {
